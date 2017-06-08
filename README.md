@@ -31,7 +31,6 @@ This artefact was successfully tested for the following versions:
 
 ## Usage
 
-```
 After importing the configuration-set and deploying it, two new APIs/Endpoints in the default group are exposed:
 - /UpdatePattern: Call this to manually trigger a DAT-File update
 - /test-virus: Can be used to verify the virus-scanner is working
@@ -44,15 +43,14 @@ When calling: e.g. http://<api-hostname>:<port>/UpdatePattern the following happ
 5. Finally the McAfee engine is initialized with the new DAT-File
 
 As a confirmation you will see a screen similar to this:
-https://github.com/Axway-API-Management/McAfee-Update-Policy/images/Update McAfee Libraries successful.png
+![Update successful](https://github.com/Axway-API-Management-Plus/McAfee-Update-Policy/blob/master/images/Update-McAfee-Libraries-successful.png)
 
 You can use the Test-API endpoint to verify that the virus scanner is working. To test  
 download the Eicar test virus from here: http://eicar.org/85-0-Download.html and send this file
 $api_server_install/apigateway/posix/lib/sr -f eicar_com.zip -a Content-Type:application/zip http://$SERVER_IP:$PORT/test-virus
 
-In the monitoring you will see the following trace output:
-https://github.com/Axway-API-Management/McAfee-Update-Policy/images/McAfee-Virus-Scan-Test.png
-```
+In the API-Gateway monitoring you will see the following trace output:
+![Trace output](https://github.com/Axway-API-Management-Plus/McAfee-Update-Policy/blob/master/images/McAfee-Virus-Scan-Test.png)
 
 ## Bug and Caveats
 
