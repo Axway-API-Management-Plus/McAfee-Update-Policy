@@ -1,7 +1,7 @@
 # McAfee-Update-Policy
 
 # Description
-This sample policy can be used to update the McAfee DAT-File on the Axway API-Gateway using by the 'McAfee virus scan' filter.
+This sample policy can be used to update the McAfee DAT-File on the Axway API-Gateway used by the 'McAfee virus scan' filter.
 The configuration contains:
 - policy to download & update the used McAfee-DAT-File
 - a scheduler to perform the update once a day at 10:15am
@@ -35,7 +35,11 @@ After importing the configuration-set and deploying it, two new APIs/Endpoints i
 - /UpdatePattern: Call this to manually trigger a DAT-File update
 - /test-virus: Can be used to verify the virus-scanner is working
 
-When calling: e.g. http://<api-hostname>:<port>/UpdatePattern the following happens:
+When calling: e.g. 
+```
+http://<api-hostname>:<port>/UpdatePattern 
+```
+the following happens:
 1. The newest DAT-File is downloaded
 2. The MD5-Checksum is verified
 3. The file is unzipped
@@ -46,9 +50,10 @@ As a confirmation you will see a screen similar to this:
 ![Update successful](https://github.com/Axway-API-Management-Plus/McAfee-Update-Policy/blob/master/images/Update-McAfee-Libraries-successful.png)
 
 You can use the Test-API endpoint to verify that the virus scanner is working. To test  
-download the Eicar test virus from here: http://eicar.org/85-0-Download.html and send this file
+download the Eicar test virus from here: http://eicar.org/85-0-Download.html and send this file like this
+```
 $api_server_install/apigateway/posix/lib/sr -f eicar_com.zip -a Content-Type:application/zip http://$SERVER_IP:$PORT/test-virus
-
+```
 In the API-Gateway monitoring you will see the following trace output:
 ![Trace output](https://github.com/Axway-API-Management-Plus/McAfee-Update-Policy/blob/master/images/McAfee-Virus-Scan-Test.png)
 
