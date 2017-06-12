@@ -1,0 +1,2780 @@
+<entityStoreData xmlns="http://www.vordel.com/2005/06/24/entityStore">
+<metaInfo flags="138">
+	<exportRoots>
+		<key type='ProxyServerGroup'>
+			<id field='name' value='Proxy Servers'/>
+			<key type='ProxyServer'>
+				<id field='name' value='Sample-Proxy'/>
+			</key>
+		</key>
+		<key type='NetService'>
+			<id field='name' value='Service'/>
+			<key type='CircuitScheduler'>
+				<id field='name' value='Update McAfee DAT files'/>
+			</key>
+		</key>
+		<key type='CronExpressionGroup'>
+			<id field='name' value='Cron Expression Library'/>
+			<key type='CronExpression'>
+				<id field='name' value='Run at 10:30am every day'/>
+			</key>
+		</key>
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='TestVirus'/>
+			</key>
+		</key>
+		<key type='NetService'>
+			<id field='name' value='Service'/>
+			<key type='RemoteHost'>
+				<id field='alias' value='McAfee update host'/>
+			</key>
+		</key>
+		<key type='SMTPServerGroup'>
+			<id field='name' value='SMTP Servers'/>
+			<key type='SMTPServer'>
+				<id field='name' value='Sample-SMTP'/>
+			</key>
+		</key>
+		<key type='NetService'>
+			<id field='name' value='Service'/>
+			<key type='HTTP'>
+				<id field='name' value='Default Services'/>
+				<key type='XMLFirewall'>
+					<id field='uriprefix' value='/test-virus'/>
+					<id field='httpMethod' value='*'/>
+				</key>
+			</key>
+		</key>
+		<key type='CacheManager'>
+			<id field='name' value='Cache Manager'/>
+			<key type='Cache'>
+				<id field='name' value='McAfeeCache'/>
+			</key>
+		</key>
+		<key type='AlertManager'>
+			<id field='name' value='Default Alert Configuration'/>
+			<key type='EmailAlertSystem'>
+				<id field='name' value='Sample'/>
+			</key>
+		</key>
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+			</key>
+		</key>
+		<key type='NetService'>
+			<id field='name' value='Service'/>
+			<key type='HTTP'>
+				<id field='name' value='Default Services'/>
+				<key type='XMLFirewall'>
+					<id field='uriprefix' value='/UpdatePattern'/>
+					<id field='httpMethod' value='*'/>
+				</key>
+			</key>
+		</key>
+		<key type='ESConfiguration'>
+			<id field='name' value='Entity Store Configuration'/>
+		</key>
+	</exportRoots>
+	<typeVersions>
+		<type name="AlertFilter" version="4"/>
+		<type name="AlertManager" version="1"/>
+		<type name="AlertNotification" version="1"/>
+		<type name="AlertSystem" version="0"/>
+		<type name="AttrContentFilter" version="1"/>
+		<type name="AttributeRegularExpression" version="2"/>
+		<type name="Cache" version="0"/>
+		<type name="CacheAttributeFilter" version="1"/>
+		<type name="CacheManager" version="2"/>
+		<type name="ChangeMessageFilter" version="0"/>
+		<type name="CircuitContainer" version="1"/>
+		<type name="CircuitDelegateFilter" version="1"/>
+		<type name="CircuitReference" version="2"/>
+		<type name="CircuitScheduler" version="2"/>
+		<type name="ConnectToURLFilter" version="4"/>
+		<type name="ConnectionFilter" version="16"/>
+		<type name="ConversionFilter" version="0"/>
+		<type name="CronExpression" version="0"/>
+		<type name="CronExpressionGroup" version="0"/>
+		<type name="ESConfiguration" version="21"/>
+		<type name="EmailAlertNotification" version="1"/>
+		<type name="EmailAlertSystem" version="3"/>
+		<type name="Entity" version="0"/>
+		<type name="ExecFilter" version="2"/>
+		<type name="Filter" version="5"/>
+		<type name="FilterCircuit" version="4"/>
+		<type name="HTTP" version="5"/>
+		<type name="HTTPBodyParserFilter" version="0"/>
+		<type name="IsCachedAttributeFilter" version="1"/>
+		<type name="JavaProcess" version="0"/>
+		<type name="JavaScriptFilter" version="3"/>
+		<type name="LoadBalanceConfig" version="0"/>
+		<type name="LoadableModule" version="2"/>
+		<type name="McAfeeVirusCheck" version="2"/>
+		<type name="MessageAttrContentFilter" version="0"/>
+		<type name="NamedLoadableModule" version="0"/>
+		<type name="NamedTopLevelGroup" version="0"/>
+		<type name="NativeModule" version="0"/>
+		<type name="NetService" version="5"/>
+		<type name="PortableCircuitReference" version="0"/>
+		<type name="Process" version="0"/>
+		<type name="ProxyServer" version="1"/>
+		<type name="ProxyServerGroup" version="1"/>
+		<type name="RemoteHost" version="18"/>
+		<type name="RemoveHTTPHeaderFilter" version="0"/>
+		<type name="RootChild" version="0"/>
+		<type name="RoundRobinLbCfg" version="0"/>
+		<type name="SMTPServer" version="1"/>
+		<type name="SMTPServerGroup" version="1"/>
+		<type name="SaveToFileFilter" version="2"/>
+		<type name="SetAttributeFilter" version="0"/>
+		<type name="SetHTTPVerbFilter" version="0"/>
+		<type name="SmtpFilter" version="3"/>
+		<type name="SocketProtocol" version="1"/>
+		<type name="SoftCircuitReference" version="0"/>
+		<type name="TransportModule" version="4"/>
+		<type name="TrueFilter" version="0"/>
+		<type name="URIHandler" version="5"/>
+		<type name="XMLFirewall" version="9"/>
+	</typeVersions>
+	<realizedTypes><![CDATA[
+<entityStoreData>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Entity" name="RootChild"/>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="RootChild" name="LoadableModule">
+        <constant name="_version" type="integer" value="2"/>
+        <constant name="loadorder" type="integer" value="1000000"/>
+        <field cardinality="?" name="classloader" type="^ClassLoader"/>
+
+        </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="LoadableModule" name="NativeModule">
+        <constant name="_version" type="integer" value="0"/>
+                <constant name="class" type="string" value="com.vordel.dwe.NativeModule"/>
+        </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="NativeModule" name="SocketProtocol">
+        <constant name="_version" type="integer" value="1"/>
+        <componentType name="Interface"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="SocketProtocol" name="HTTP">
+        <constant name="_version" type="integer" value="5"/>
+        <constant name="class" type="string" value="com.vordel.dwe.http.HTTP"/>
+        <componentType name="URIHandler"/>
+        <componentType name="VirtualHost"/>
+        <field cardinality="1" default="" isKey="true" name="name" type="string"/> <!--  ES needs name -->
+        <field cardinality="?" default="-1" name="corsProfile" type="^CORS"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NativeModule" name="RemoteHost">
+        <constant name="_version" type="integer" value="18"/>
+        <constant name="loadorder" type="integer" value="500000"/> <!-- load a bit early -->
+        <componentType cardinality="1" name="Watchdog"/>
+        <componentType cardinality="1" name="LoadBalanceConfig"/>
+        <componentType cardinality="*" name="AddressRank"/>
+        <field isKey="true" name="alias" type="string"/>
+        <field name="name" type="string"/>
+        <field cardinality="1" default="80" name="port" type="string"/>
+        <field cardinality="1" default="0" name="allowHTTP11" type="boolean"/>
+        <field cardinality="1" default="-1" name="maxConnections" type="integer"/>
+        <field cardinality="1" default="30000" name="connectTimeout" type="integer"/>
+        <field cardinality="1" default="30000" name="activetimeout" type="integer"/>
+        <field cardinality="1" default="240000" name="maxTransTimeout" type="integer"/>
+        <field cardinality="1" default="10485760" name="maxInputLen" type="integer"/>
+        <field cardinality="1" default="10485760" name="maxOutputLen" type="integer"/>
+        <field cardinality="1" default="15000" name="idletimeout" type="integer"/>
+        <field cardinality="1" default="8192" name="inputBufSize" type="integer"/>
+        <field cardinality="1" default="8192" name="outputBufSize" type="integer"/>
+        <field cardinality="1" default="0" name="includeContentLengthRequest" type="boolean"/>
+        <field cardinality="1" default="0" name="includeContentLengthResponse" type="boolean"/>
+        <field cardinality="1" default="300000" name="addressCacheTime" type="integer"/>
+        <field default="32" name="sessionCacheSize" type="integer"/>    
+        <field cardinality="1" default="1" name="verifyServerHostname" type="boolean"/>
+        <field cardinality="1" default="0" name="offerTlsServerName" type="boolean"/>
+
+        <!--
+            The list of content-encodings that we will receive or send
+            We cannot distinguish between an empty list, and an absent property,
+            so we use the magic single value ".inherit" to mean "derive settings
+            from parent context
+        -->
+        <field cardinality="*" default=".inherit" name="inputEncodings" type="string"/>
+        <field cardinality="*" default=".inherit" name="outputEncodings" type="string"/>
+
+
+        <!-- Indicate if correlation IDs should be sent to this host -->
+        <field cardinality="1" default="true" name="exportCorrelationId" type="boolean"/>
+
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="LoadableModule" name="TransportModule">
+    <constant name="_version" type="integer" value="4"/>
+    <constant name="descriptorClass" type="string" value="com.vordel.client.circuit.model.UndefinedTransportDescriptor"/>
+    <field cardinality="1" default="SYSTEM" name="opsSettingsUsage" type="string"/>
+    <field cardinality="1" default="true" name="recordInboundTxns" type="boolean"/>
+    <field cardinality="1" default="true" name="recordOutboundTxns" type="boolean"/>
+    <field cardinality="1" default="true" name="recordCircuitPath" type="boolean"/>
+    <field cardinality="1" default="true" name="recordTrace" type="boolean"/>
+    <field cardinality="1" default="true" name="recordSent" type="boolean"/>
+    <field cardinality="1" default="true" name="recordReceived" type="boolean"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="TransportModule" name="CircuitScheduler">
+    <constant name="_version" type="integer" value="2"/>
+    <constant name="class" type="string" value="com.vordel.dwe.scheduler.CircuitScheduler"/>
+    <constant name="descriptorClass" type="string" value="com.vordel.client.manager.filter.scheduler.SchedulerTransportDescriptor"/>  
+    <constant name="loadorder" type="integer" value="2000000"/>
+    <field cardinality="1" isKey="true" name="name" type="string"/>
+    <field cardinality="1" name="filterCircuit" type="^FilterCircuit"/>
+    <field cardinality="1" name="cronExpression" type="^CronExpression"/>
+    <field cardinality="1" default="1" name="enabled" type="boolean"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="LoadableModule" name="NamedLoadableModule">
+        <constant name="_version" type="integer" value="0"/>
+		<field cardinality="1" isKey="true" name="name" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NamedLoadableModule" name="AlertManager">
+        <constant name="_version" type="integer" value="1"/>
+        <constant name="class" type="string" value="com.vordel.alert.AlertManager"/>
+	    <componentType cardinality="*" name="AlertSystem"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NamedLoadableModule" name="CacheManager">
+            <constant name="_version" type="integer" value="2"/>
+            <constant name="class" type="string" value="com.vordel.circuit.cache.CacheContainer"/>
+            <constant name="loadorder" type="integer" value="1"/>
+            <componentType cardinality="*" name="Cache"/>
+        </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NamedLoadableModule" name="ProxyServerGroup">
+    <constant name="_version" type="integer" value="1"/>
+    <constant name="class" type="string" value="com.vordel.circuit.proxy.ProxyServerGroup"/>
+    <constant name="loadorder" type="integer" value="500"/>
+
+    <componentType cardinality="*" name="ProxyServer"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NamedLoadableModule" name="SMTPServerGroup">
+    <constant name="_version" type="integer" value="1"/>
+    <constant name="class" type="string" value="com.vordel.circuit.smtp.SMTPServerGroup"/>
+    <constant name="loadorder" type="integer" value="500"/>
+    <componentType cardinality="*" name="SMTPServer"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="RootChild" name="ESConfiguration">
+        <constant name="_version" type="integer" value="21"/>
+        <!--
+            Give this singleton a key.
+        -->
+        <field isKey="true" name="name" type="string"/>
+        <!-- 
+            We use this field to verify that the passphrase for the 
+            encryped data is synchronized between the server and client, and
+            between multiple invocations of the client
+        -->
+        <field name="passphraseTest" type="encrypted"/>
+        <field name="version" type="string"/>
+        <!-- The product key should never change for the lifetime of the product -->
+        <field name="productKey" type="string"/>
+        <field cardinality="?" name="gitrev" type="string"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="RootChild" name="Process">
+        <constant name="_version" type="integer" value="0"/> <!-- Common features to all processes created by Vordel software. -->
+		<field isKey="true" name="name" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Process" name="JavaProcess">
+        <constant name="_version" type="integer" value="0"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="JavaProcess" name="NetService">
+    <constant name="_version" type="integer" value="5"/>
+    <!-- Static type-field. -->
+    <constant name="executableImage" type="string" value="vshell"/>
+    <componentType name="LoadableModule"/>
+    <componentType name="ClassLoader"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="RootChild" name="CircuitContainer">
+    <constant name="_version" type="integer" value="1"/>
+    <componentType cardinality="*" name="FilterCircuit"/>
+    <componentType cardinality="*" name="CircuitContainer"/>
+    <componentType cardinality="*" name="MVProperty"/>
+    <field isKey="true" name="name" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="RootChild" name="FilterCircuit">
+        <constant name="_version" type="integer" value="4"/>
+		<componentType cardinality="*" name="Filter"/>
+		<componentType cardinality="1" name="BoundCircuit"/>
+		<componentType cardinality="*" name="Property"/>
+		<field cardinality="1" name="start" type="@Filter"/>
+		<field cardinality="?" name="fault" type="@Filter"/>
+		<field isKey="true" name="name" type="string"/>
+		<field cardinality="1" default="3" name="logMask" type="integer"/>
+
+		<field cardinality="?" name="description" type="string"/>		
+		<field cardinality="1" name="category" type="@PolicyCategory">
+            <defaultRef>
+                <key type="PolicyCategoryGroup">
+                  <id field="name" value="Policy Categories"/>
+                  <key type="PolicyCategory">
+                      <id field="name" value="miscellaneous"/>
+                  </key>
+                </key>
+            </defaultRef>
+        </field>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="RootChild" name="NamedTopLevelGroup">
+        <constant name="_version" type="integer" value="0"/>
+		<field isKey="true" name="name" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="NamedTopLevelGroup" name="CronExpressionGroup">
+        <constant name="_version" type="integer" value="0"/>
+		<componentType cardinality="*" name="CronExpression"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Entity" name="LoadBalanceConfig">
+        <constant name="_version" type="integer" value="0"/>
+        <field isKey="true" name="name" type="string"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="LoadBalanceConfig" name="RoundRobinLbCfg">
+        <constant name="_version" type="integer" value="0"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Entity" name="URIHandler">
+        <constant name="_version" type="integer" value="5"/>
+        <constant name="class" type="string" value="com.vordel.dwe.http.URIHandler"/>
+		<field cardinality="1" default="" isKey="true" name="uriprefix" type="string"/>
+        <field cardinality="1" default="*" isKey="true" name="httpMethod" type="string"/>
+    	<field cardinality="1" default="LONGEST" name="pathMatching" type="string"/> <!-- EXACT, LONGEST -->
+        <field cardinality="?" default="-1" name="corsProfile" type="^CORS"/>
+    	<field cardinality="1" default="HTTP" name="corsUsage" type="string"/> <!-- HTTP, URIHANDLER -->
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="URIHandler" name="XMLFirewall">
+    <constant name="_version" type="integer" value="9"/>
+    <constant name="class" type="string" value="com.vordel.dwe.http.HTTPPlugin"/>
+    <constant name="loadorder" type="integer" value="2000000"/>
+    <componentType cardinality="*" name="CircuitReference"/>
+    <componentType cardinality="*" name="URIHandler"/>
+    <field default="1" name="evaluate" type="boolean"/>
+    <field cardinality="1" name="filterCircuit" type="^FilterCircuit"/>
+    <field cardinality="1" default="2" name="logMask" type="integer"/>
+    <field cardinality="1" default="0" name="payloadMask" type="integer"/>
+    <field cardinality="1" default="1" name="enabled" type="boolean"/>
+    <field cardinality="1" default="0" name="enableAccessLogging" type="boolean"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="SMTPServer">
+        <constant name="_version" type="integer" value="1"/>
+     <field cardinality="1" isKey="true" name="name" type="string"/>
+     <field cardinality="1" name="smtpServer" type="string"/>
+     <field cardinality="1" default="25" name="smtpPort" type="integer"/>
+     <field cardinality="1" default="NONE" name="connectionType" type="string"/>
+     <field name="username" type="string"/>
+     <field cardinality="1" name="password" type="encrypted"/>
+     <field cardinality="1" default="0" name="mailDebugOn" type="string"/>
+	 </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="CronExpression">
+    <constant name="_version" type="integer" value="0"/>
+		<field isKey="true" name="name" type="string"/>
+		<field cardinality="1" name="expression" type="string"/>		
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Entity" name="AlertSystem">
+        <constant name="_version" type="integer" value="0"/>
+		<field isKey="true" name="name" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="AlertSystem" name="EmailAlertSystem">
+    <constant name="_version" type="integer" value="3"/>
+		<constant name="class" type="string" value="com.vordel.alert.email.AlertEmail"/>
+		<field cardinality="1" name="to" type="string"/>
+		<field cardinality="1" name="from" type="string"/>
+    <field cardinality="?" name="subject" type="string"/>
+    <field cardinality="1" name="smtp" type="string"/>
+    <field cardinality="1" default="25" name="port" type="string"/>
+    <field cardinality="1" default="NONE" name="connectionType" type="string"/>
+    <field cardinality="?" name="username" type="string"/>
+		<field cardinality="?" name="password" type="encrypted"/>
+		<field cardinality="1" default="0" name="mailDebugOn" type="boolean"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="CircuitReference">
+    <constant name="_version" type="integer" value="2"/>
+    <componentType cardinality="*" name="Property"/>
+    <field isKey="true" name="name" type="string"/>
+    <field cardinality="1" name="priority" type="integer"/>
+    <field cardinality="?" name="circuitPK" type="^FilterCircuit"/>
+    <!-- The evaluation of the referenced circuit is conditional. By default evaluation is enabled. -->
+    <field cardinality="1" default="true" name="evaluate" type="boolean"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="CircuitReference" name="SoftCircuitReference">
+    <constant name="_version" type="integer" value="0"/>
+    <!-- 
+      Override the circuitPK reference, making it a string value which can be interpreted as a reference 
+      at run time.
+    -->
+    <field cardinality="?" name="circuitPK" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="CircuitReference" name="PortableCircuitReference">
+    <constant name="_version" type="integer" value="0"/>
+    <field cardinality="?" name="circuitPK" type="^FilterCircuit"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="ProxyServer">
+    <constant name="_version" type="integer" value="1"/>
+
+    <field cardinality="1" isKey="true" name="name" type="string"/>
+    <field cardinality="1" name="host" type="string"/>
+    <field cardinality="1" name="port" type="string"/>
+    <field cardinality="?" name="username" type="string"/>
+    <field cardinality="?" name="password" type="encrypted"/>
+    <field cardinality="1" default="HTTP" name="scheme" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="Cache">
+        <constant name="_version" type="integer" value="0"/>
+    <!-- required -->
+    <field isKey="true" name="name" type="string"/>
+    <field cardinality="1" default="1000" name="maxElementsInMemory" type="integer"/>
+    <field cardinality="1" default="1000" name="maxElementsOnDisk" type="integer"/>
+    <field cardinality="1" default="true" name="eternal" type="boolean"/>
+    <field cardinality="1" default="true" name="overflowToDisk" type="boolean"/>
+    <!-- optional -->
+    <field cardinality="1" default="0" name="timeToIdleSeconds" type="long"/>
+    <field cardinality="1" default="0" name="timeToLiveSeconds" type="long"/>
+    <field cardinality="1" default="false" name="diskPersistent" type="boolean"/>
+    <field cardinality="1" default="120" name="diskExpiryThreadIntervalSeconds" type="long"/>    
+    <field cardinality="1" default="30" name="diskSpoolBufferSizeMB" type="integer"/>
+    <field cardinality="1" default="LRU" name="memoryStoreEvictionPolicy" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="AlertNotification">
+        <constant name="_version" type="integer" value="1"/>
+		<field cardinality="1" isKey="true" name="alertSystem" type="^AlertSystem"/>
+		<field cardinality="1" default="" name="customMessage" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="AlertNotification" name="EmailAlertNotification">
+        <constant name="_version" type="integer" value="1"/>
+		<field cardinality="1" default="-1" name="mimeType" type="^MimeType"/>
+		<field cardinality="1" default="" name="messageTemplateFile" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Entity" name="AttributeRegularExpression">
+        <constant name="_version" type="integer" value="2"/>
+        <field isKey="true" name="attributeName" type="string"/>
+        <field cardinality="1" default="0" name="base64Decode" type="boolean"/>
+        <field cardinality="?" default="" name="substringStart" type="string"/>
+        <field cardinality="?" default="" name="substringEnd" type="string"/>
+        <field cardinality="1" default="0" name="required" type="boolean"/>
+        <field cardinality="?" name="libraryRegularExpression" type="^RegularExpression"/>
+        <field cardinality="?" name="onceOffRegularExpression" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Entity" name="Filter">
+        <constant name="_version" type="integer" value="5"/>
+        <field cardinality="?" name="successNode" type="@Filter"/>
+        <field cardinality="?" name="failureNode" type="@Filter"/>
+        <field isKey="true" name="name" type="string"/>
+        <field cardinality="1" default="2" name="logMask" type="integer"/>
+        <field cardinality="1" default="Filter aborted due to exception" name="logFatal" type="string"/>
+        <field cardinality="1" default="Filter failed" name="logFailure" type="string"/>
+        <field cardinality="1" default="Filter passed" name="logSuccess" type="string"/>
+        <field cardinality="1" name="category" type="@Category">
+            <defaultRef>
+                <key type="CategoryGroup">
+                  <id field="name" value="Filter Categories"/>
+                  <key type="Category">
+                      <id field="name" value="miscellaneous"/>
+                  </key>
+                </key>
+            </defaultRef>
+        </field>
+      <field cardinality="1" default="0" name="abortProcessingOnLogError" type="boolean"/>
+      <field cardinality="1" default="SERVICE" name="logMaskType" type="string"/>
+      <field cardinality="*" name="classloader" type="^ClassLoader"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="SetAttributeFilter">
+        <constant name="_version" type="integer" value="0"/>
+  
+    <!-- Name of the Filter class that encapsulates this configuration entity -->
+    <constant name="class" type="string" value="com.vordel.circuit.attribute.SetAttributeFilter"/>
+    
+    <!-- List of the configuration parameters, their types, and their default values -->
+    <field cardinality="1" default="" name="messageAttribute" type="string"/>	
+    <field cardinality="1" default="" name="attributeValue" type="string"/>	
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Filter" name="AttrContentFilter">
+        <constant name="_version" type="integer" value="1"/>
+        <componentType cardinality="*" name="AttributeRegularExpression"/>
+        <field cardinality="*" name="threatLibraryRegularExpression" type="^RegularExpression"/>
+        <field cardinality="*" name="threatOnceOffRegularExpression" type="string"/>
+        <!-- Override the category to give it a different default -->
+        <field cardinality="1" name="category" type="@Category">
+          <defaultRef>
+            <key type="CategoryGroup">
+              <id field="name" value="Filter Categories"/>
+              <key type="Category">
+                <id field="name" value="content-filtering"/>
+              </key>
+            </key>
+          </defaultRef>
+        </field>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="AttrContentFilter" name="MessageAttrContentFilter">
+        <constant name="_version" type="integer" value="0"/>
+	     <constant name="class" type="string" value="com.vordel.circuit.attribute.MessageAttrContentFilter"/>	
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="SaveToFileFilter">
+		<constant name="_version" type="integer" value="2"/>
+		<constant name="class" type="string" value="com.vordel.circuit.file.SaveToFileFilter"/>
+		<field cardinality="1" default="${id}.out" name="fileName" type="string"/>
+		<field cardinality="1" default="${environment.VINSTDIR}/message-archive" name="directory" type="string"/>
+		<field cardinality="1" default="1000" name="maxFileSize" type="integer"/>
+		<field cardinality="1" default="500" name="maxNumberFiles" type="integer"/>
+		<field cardinality="1" default="0" name="includeHeaders" type="boolean"/>
+		<field cardinality="1" default="0" name="includeRequestLine" type="boolean"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="McAfeeVirusCheck">
+        <constant name="_version" type="integer" value="2"/>
+        <constant name="class" type="string" value="com.vordel.circuit.virus.McAfeeFilter"/>
+
+        <!-- Decompress archives when scanning -->
+        <field default="1" name="decompArchives" type="boolean"/>
+
+        <field default="1" name="decompExes" type="boolean"/>
+
+        <field default="0" name="failAnyMacros" type="boolean"/>
+
+        <field default="1" name="heuristicProgramAnalysis" type="boolean"/>
+
+        <field default="0" name="heusristicMacroAnalysis" type="boolean"/>
+
+        <field default="1" name="scanEmbedded" type="boolean"/>
+
+        <field default="1" name="scanTests" type="boolean"/>
+
+        <field default="1" name="scanType" type="integer"/>
+
+        <field default="0" name="cleanType" type="integer"/>
+
+        <field cardinality="1" name="category" type="@Category">
+          <defaultRef>
+            <key type="CategoryGroup">
+              <id field="name" value="Filter Categories"/>
+              <key type="Category">
+                <id field="name" value="content-filtering"/>
+              </key>
+            </key>
+          </defaultRef>
+        </field>
+</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="RemoveHTTPHeaderFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<constant name="class" type="string" value="com.vordel.circuit.conversion.RemoveHTTPHeaderFilter"/>
+		<field cardinality="1" name="headerName" type="string"/>	
+        <field cardinality="1" default="0" name="errorNoHeader" type="boolean"/>	
+         </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="SetHTTPVerbFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<constant name="class" type="string" value="com.vordel.circuit.conversion.SetHTTPVerbFilter"/>
+		<field cardinality="1" name="httpVerb" type="string"/>	
+         </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="CacheAttributeFilter">
+        <constant name="_version" type="integer" value="1"/>	    
+	    <constant name="class" type="string" value="com.vordel.circuit.cache.CacheAttributeFilter"/>
+        <field cardinality="1" name="cacheToUse" type="^Cache"/>
+	    <field cardinality="1" default="message.key" name="keyAttributeName" type="string"/>
+		<field cardinality="1" default="content.body" name="attributeName" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="IsCachedAttributeFilter">
+        <constant name="_version" type="integer" value="1"/>	    
+	    <constant name="class" type="string" value="com.vordel.circuit.cache.IsCachedAttributeFilter"/>
+        <field cardinality="1" name="cacheToUse" type="^Cache"/>
+	    <field cardinality="1" default="message.key" name="keyAttributeName" type="string"/>
+		<field cardinality="1" default="content.body" name="attributeName" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="TrueFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<constant name="class" type="string" value="com.vordel.circuit.basic.True"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="CircuitDelegateFilter">
+        <constant name="_version" type="integer" value="1"/>
+		<constant name="class" type="string" value="com.vordel.circuit.CircuitDelegateFilter"/>
+		<field cardinality="?" name="circuitPK" type="^FilterCircuit"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="ExecFilter">
+    <constant name="_version" type="integer" value="2"/>
+    <constant name="class" type="string" value="com.vordel.circuit.exec.ExecFilter"/>
+    <!-- environment variables -->
+    <componentType cardinality="*" name="Property"/>
+    <field cardinality="1" name="cmdLine" type="string"/>
+    <field cardinality="1" default="${environment.VINSTDIR}" name="workingDirectory" type="string"/>
+    <field cardinality="*" name="arguments" type="string"/>
+    <field cardinality="1" default="0" name="exitValue" type="integer"/>
+    <field cardinality="1" default="60000" name="timeout" type="integer"/>
+    <field cardinality="1" default="true" name="block" type="boolean"/>
+   </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="SmtpFilter">
+        <constant name="_version" type="integer" value="3"/>	    
+        <constant name="class" type="string" value="com.vordel.circuit.smtp.SMTPFilter"/>
+        <field cardinality="1" name="smtpServer" type="^SMTPServer"/>
+        <field cardinality="1" name="to" type="string"/>
+        <field cardinality="1" name="from" type="string"/>
+        <field name="subject" type="string"/>
+        <field default="0" name="bodyLocation" type="string"/>
+		<field default="${id}.bin" name="attachmentName" type="string"/>
+    </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" abstract="true" extends="Filter" name="ConversionFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<field cardinality="?" name="outputContentType" type="string"/> 
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="ConversionFilter" name="ChangeMessageFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<constant name="class" type="string" value="com.vordel.circuit.conversion.ChangeMessageFilter"/>
+		<field cardinality="1" default="" name="body" type="string"/>	
+         </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="JavaScriptFilter">
+        <constant name="_version" type="integer" value="3"/>
+	<constant name="class" type="string" value="com.vordel.circuit.script.ScriptFilter"/>
+	<field cardinality="1" default="function invoke(msg)         {            return true;         }" name="script" type="string"/>
+	<field cardinality="1" default="nashorn" name="engineName" type="string"/>
+        <field cardinality="*" name="requiredProperties" type="string"/>
+        <field cardinality="*" name="generatedProperties" type="string"/>
+        <field cardinality="*" name="consumedProperties" type="string"/>
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="AlertFilter">
+  <constant name="_version" type="integer" value="4"/>
+  <constant name="class" type="string" value="com.vordel.circuit.alert.AlertFilter"/>
+  
+  <componentType cardinality="+" name="AlertNotification"/>
+  
+  <field cardinality="?" name="alertMessage" type="string"/>
+  <field cardinality="1" default="1" name="alertType" type="integer"/>
+  <field cardinality="1" default="1" name="numberMessages" type="integer"/>             
+  <field cardinality="1" default="60000" name="timePeriodMillis" type="integer"/>           
+  <field cardinality="1" default="1" name="trackPerClient" type="boolean"/>
+  <field cardinality="1" name="alertPolicy" type="^FilterCircuit"/>
+</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="ConnectionFilter">
+    <constant name="_version" type="integer" value="16"/>
+    <constant name="class" type="string" value="com.vordel.circuit.net.ConnectionFilter"/>
+    <componentType cardinality="1" name="SaveToFileFilter"/>
+    <field cardinality="?" name="profile" type="^NamedAuthnProfile"/>
+
+    <!-- SSL Specific -->
+    <field cardinality="*" name="caCerts" type="^Certificate"/>
+    <field cardinality="*" name="sslUsers" type="^Certificate"/>
+    <field cardinality="1" default="true" name="useRootCerts" type="boolean"/>
+    <field default="DEFAULT" name="ciphers" type="string"/> <!-- See OpenSSL "ciphers" manpage -->
+
+    <field cardinality="?" default="0" name="sendProxyMode" type="boolean"/>	
+    <field cardinality="?" default="0" name="forwardClientHostHeader" type="boolean"/>
+
+
+    <field cardinality="1" default="false" name="transparentProxy" type="boolean"/>
+    <field cardinality="1" default="false" name="sendReceivedContentHeaders" type="boolean"/>
+    <field cardinality="1" default="true" name="handleRedirects" type="boolean"/>
+    <field cardinality="1" default="false" name="performRetries" type="boolean"/>
+    <field cardinality="*" name="retryHTTPRanges" type="^HTTPStatusClass"/>
+    <field cardinality="1" default="5" name="retryCount" type="string"/>
+    <field cardinality="1" default="500" name="retryLatency" type="string"/>
+    <field cardinality="1" default="false" name="slaBreachAsFailure" type="boolean"/>
+    <field cardinality="1" default="false" name="saveTransactionOnFailure" type="boolean"/>
+    <field cardinality="1" default="false" name="runPolicyOnConnectionFailure" type="boolean"/>
+    <field cardinality="?" name="connectionFailurePolicy" type="^FilterCircuit"/>
+    <field cardinality="?" name="proxyServer" type="^ProxyServer"/>
+    <field cardinality="?" default="0" name="stickyness" type="integer"/>
+    <field cardinality="?" default="unnamed" name="stickyCookieName" type="string"/>
+    <field cardinality="?" default="600000" name="stickyCookieExpiry" type="long"/>
+    <field cardinality="?" default="" name="stickyCookiePath" type="string"/>
+    <field cardinality="?" default="" name="stickyCookieDomain" type="string"/>
+  </entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="ConnectionFilter" name="ConnectToURLFilter">
+        <constant name="_version" type="integer" value="4"/>
+		<constant name="class" type="string" value="com.vordel.circuit.net.ConnectToURLFilter"/>
+		<field cardinality="1" default="${http.request.uri}" name="url" type="string"/>	
+		<field cardinality="1" default="${http.request.verb}" name="method" type="string"/>	
+		<field cardinality="1" default="${content.body}" name="body" type="string"/>	
+		<field cardinality="1" default="${http.headers}" name="protoHeaders" type="string"/>	
+	</entityType>
+<entityType xmlns="http://www.vordel.com/2005/06/24/entityStore" extends="Filter" name="HTTPBodyParserFilter">
+        <constant name="_version" type="integer" value="0"/>
+		<constant name="class" type="string" value="com.vordel.circuit.HTTPBodyParserFilter"/>
+	</entityType>
+</entityStoreData>
+	]]></realizedTypes>
+</metaInfo>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ProxyServer">
+	<key type='ProxyServerGroup'>
+		<id field='name' value='Proxy Servers'/>
+	</key>
+	<fval name="host"><value>sample-proxy-host</value></fval>
+	<fval name="name"><value>Sample-Proxy</value></fval>
+	<fval name="password"><value></value></fval>
+	<fval name="port"><value>8080</value></fval>
+	<fval name="scheme"><value>HTTP</value></fval>
+	<fval name="username"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ProxyServerGroup">
+	<fval name="name"><value>Proxy Servers</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitScheduler">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+	</key>
+	<fval name="cronExpression"><value contentType="reference">
+<key type='CronExpressionGroup'><id field='name' value='Cron Expression Library'/><key type='CronExpression'><id field='name' value='Run at 10:30am every day'/></key></key>	</value></fval>
+	<fval name="enabled"><value>1</value></fval>
+	<fval name="filterCircuit"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='CircuitContainer'><id field='name' value='McAfee'/><key type='FilterCircuit'><id field='name' value='Scheduler Update'/></key></key></key>	</value></fval>
+	<fval name="name"><value>Update McAfee DAT files</value></fval>
+	<fval name="opsSettingsUsage"><value>SYSTEM</value></fval>
+	<fval name="recordCircuitPath"><value>true</value></fval>
+	<fval name="recordInboundTxns"><value>true</value></fval>
+	<fval name="recordOutboundTxns"><value>true</value></fval>
+	<fval name="recordReceived"><value>true</value></fval>
+	<fval name="recordSent"><value>true</value></fval>
+	<fval name="recordTrace"><value>true</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="NetService">
+	<fval name="name"><value>Service</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CronExpression">
+	<key type='CronExpressionGroup'>
+		<id field='name' value='Cron Expression Library'/>
+	</key>
+	<fval name="expression"><value>0 30 10 ? * *</value></fval>
+	<fval name="name"><value>Run at 10:30am every day</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CronExpressionGroup">
+	<fval name="name"><value>Cron Expression Library</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+	</key>
+	<fval name="category"><value contentType="reference">
+		<key type='PolicyCategoryGroup'>
+			<id field='name' value='Policy Categories'/>
+			<key type='PolicyCategory'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>TestVirus</value></fval>
+	<fval name="start"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='TestVirus'/>
+				<key type='McAfeeVirusCheck'>
+					<id field='name' value='McAfee Anti-Virus'/>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="McAfeeVirusCheck">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='FilterCircuit'>
+			<id field='name' value='TestVirus'/>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='content-filtering'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="cleanType"><value>2</value></fval>
+	<fval name="decompArchives"><value>1</value></fval>
+	<fval name="decompExes"><value>1</value></fval>
+	<fval name="failAnyMacros"><value>0</value></fval>
+	<fval name="heuristicProgramAnalysis"><value>1</value></fval>
+	<fval name="heusristicMacroAnalysis"><value>0</value></fval>
+	<fval name="logFailure"><value>McAfee antivirus: Virus found in message</value></fval>
+	<fval name="logFatal"><value>Error occurred during McAfee antivirus filtering. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>McAfee antivirus: No virus found in message</value></fval>
+	<fval name="name"><value>McAfee Anti-Virus</value></fval>
+	<fval name="scanEmbedded"><value>1</value></fval>
+	<fval name="scanTests"><value>1</value></fval>
+	<fval name="scanType"><value>3</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitContainer">
+	<fval name="name"><value>AdminPolicies</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RemoteHost">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+	</key>
+	<fval name="activetimeout"><value>30000</value></fval>
+	<fval name="addressCacheTime"><value>300000</value></fval>
+	<fval name="alias"><value>McAfee update host</value></fval>
+	<fval name="allowHTTP11"><value>1</value></fval>
+	<fval name="connectTimeout"><value>30000</value></fval>
+	<fval name="exportCorrelationId"><value>1</value></fval>
+	<fval name="idletimeout"><value>15000</value></fval>
+	<fval name="includeContentLengthRequest"><value>0</value></fval>
+	<fval name="includeContentLengthResponse"><value>0</value></fval>
+	<fval name="inputBufSize"><value>8192</value></fval>
+	<fval name="inputEncodings"><value>.inherit</value></fval>
+	<fval name="maxConnections"><value>128</value></fval>
+	<fval name="maxInputLen"><value>157286400</value></fval>
+	<fval name="maxOutputLen"><value>10485760</value></fval>
+	<fval name="maxTransTimeout"><value>240000</value></fval>
+	<fval name="name"><value>update.nai.com</value></fval>
+	<fval name="offerTlsServerName"><value>0</value></fval>
+	<fval name="outputBufSize"><value>8192</value></fval>
+	<fval name="outputEncodings"><value>.inherit</value></fval>
+	<fval name="port"><value>80</value></fval>
+	<fval name="sessionCacheSize"><value>32</value></fval>
+	<fval name="verifyServerHostname"><value>1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RoundRobinLbCfg">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='RemoteHost'>
+			<id field='alias' value='McAfee update host'/>
+		</key>
+	</key>
+	<fval name="name"><value>6112a6a6-a7d8-4db4-a848-9d4137c189d3</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SMTPServer">
+	<key type='SMTPServerGroup'>
+		<id field='name' value='SMTP Servers'/>
+	</key>
+	<fval name="connectionType"><value>NONE</value></fval>
+	<fval name="mailDebugOn"><value>0</value></fval>
+	<fval name="name"><value>Sample-SMTP</value></fval>
+	<fval name="password"><value></value></fval>
+	<fval name="smtpPort"><value>25</value></fval>
+	<fval name="smtpServer"><value>sample.smtp.host</value></fval>
+	<fval name="username"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SMTPServerGroup">
+	<fval name="name"><value>SMTP Servers</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XMLFirewall">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+		</key>
+	</key>
+	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
+	<fval name="corsUsage"><value>HTTP</value></fval>
+	<fval name="enableAccessLogging"><value>0</value></fval>
+	<fval name="enabled"><value>1</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="filterCircuit"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='FilterCircuit'><id field='name' value='TestVirus'/></key></key>	</value></fval>
+	<fval name="httpMethod"><value>*</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="pathMatching"><value>LONGEST</value></fval>
+	<fval name="payloadMask"><value>0</value></fval>
+	<fval name="uriprefix"><value>/test-virus</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/test-virus'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
+	<fval name="evaluate"><value>true</value></fval>
+	<fval name="name"><value>CUSTOM_POLICY_RSP</value></fval>
+	<fval name="priority"><value>3</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/test-virus'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
+	<fval name="evaluate"><value>true</value></fval>
+	<fval name="name"><value>CUSTOM_POLICY_REQ</value></fval>
+	<fval name="priority"><value>1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/test-virus'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value>system.policy.response</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="name"><value>GLOBAL_POLICY_RSP</value></fval>
+	<fval name="priority"><value>4</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/test-virus'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value>system.policy.request</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="name"><value>GLOBAL_POLICY_REQ</value></fval>
+	<fval name="priority"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="HTTP">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+	</key>
+	<fval name="name"><value>Default Services</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Cache">
+	<key type='CacheManager'>
+		<id field='name' value='Cache Manager'/>
+	</key>
+	<fval name="diskExpiryThreadIntervalSeconds"><value>120</value></fval>
+	<fval name="diskPersistent"><value>1</value></fval>
+	<fval name="diskSpoolBufferSizeMB"><value>30</value></fval>
+	<fval name="eternal"><value>0</value></fval>
+	<fval name="maxElementsInMemory"><value>10</value></fval>
+	<fval name="maxElementsOnDisk"><value>10</value></fval>
+	<fval name="memoryStoreEvictionPolicy"><value>LRU</value></fval>
+	<fval name="name"><value>McAfeeCache</value></fval>
+	<fval name="overflowToDisk"><value>1</value></fval>
+	<fval name="timeToIdleSeconds"><value>0</value></fval>
+	<fval name="timeToLiveSeconds"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CacheManager">
+	<fval name="name"><value>Cache Manager</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="EmailAlertSystem">
+	<key type='AlertManager'>
+		<id field='name' value='Default Alert Configuration'/>
+	</key>
+	<fval name="connectionType"><value>NONE</value></fval>
+	<fval name="from"><value>sample</value></fval>
+	<fval name="mailDebugOn"><value>false</value></fval>
+	<fval name="name"><value>Sample</value></fval>
+	<fval name="password"><value></value></fval>
+	<fval name="port"><value>25</value></fval>
+	<fval name="smtp"><value>sample</value></fval>
+	<fval name="subject"><value>sample</value></fval>
+	<fval name="to"><value>sample</value></fval>
+	<fval name="username"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="AlertManager">
+	<fval name="name"><value>Default Alert Configuration</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitContainer">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+	</key>
+	<fval name="name"><value>McAfee</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+		</key>
+	</key>
+	<fval name="category"><value contentType="reference">
+		<key type='PolicyCategoryGroup'>
+			<id field='name' value='Policy Categories'/>
+			<key type='PolicyCategory'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>Manual Update</value></fval>
+	<fval name="start"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Manual Update'/>
+					<key type='RemoveHTTPHeaderFilter'>
+						<id field='name' value='Remove HTTP Header &apos;If-Modified-Since&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RemoveHTTPHeaderFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Manual Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="errorNoHeader"><value>0</value></fval>
+	<fval name="headerName"><value>If-None-Match</value></fval>
+	<fval name="logFailure"><value>Failed in removing the HTTP header from the message</value></fval>
+	<fval name="logFatal"><value>Error in removing the HTTP header from the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in removing the HTTP header from the message</value></fval>
+	<fval name="name"><value>Remove HTTP Header &apos;If-None-Match&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Manual Update'/>
+					<key type='CircuitDelegateFilter'>
+						<id field='name' value='Call &apos;Update McAfee Libraries&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Manual Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>&lt;html&gt;&#xD;&#xA;  &lt;head&gt;&#xD;&#xA;    &lt;title&gt;SOA - Update McAfee Libraries&lt;/title&gt;&#xD;&#xA;    &lt;style&gt;&#xD;&#xA;      body { font-family: verdana; font-size: 12px; }&#xD;&#xA;    &lt;/style&gt;&#xD;&#xA;  &lt;/head&gt;&#xD;&#xA;  &lt;body&gt;&#xD;&#xA;&#xD;&#xA;&lt;b&gt;Is DAT file cached:&lt;/b&gt; ${is.cached}&lt;br/&gt;&#xD;&#xA;&lt;b&gt;Cache Key:&lt;/b&gt; ${message.key}&lt;br/&gt;&lt;br/&gt;&#xD;&#xA;&#xD;&#xA;&lt;b&gt;FileName:&lt;/b&gt; ${av.zipsection.filename}&lt;/br&gt;&#xD;&#xA;&lt;b&gt;Expect MD5:&lt;/b&gt; ${av.zipsection.md5}&lt;/br&gt;&#xD;&#xA;&lt;b&gt;Actual MD5: &lt;/b&gt; ${zipfile.md5}&lt;br/&gt;&lt;br/&gt;&#xD;&#xA;&#xD;&#xA; &lt;b&gt;[AVV-ZIP]&lt;/b&gt;&lt;br/&gt;&#xD;&#xA;&lt;textarea cols=60 rows=8&gt;&#xD;&#xA;${av.zipsection.text}&#xD;&#xA;&lt;/textarea&gt;&#xD;&#xA;&lt;br/&gt;&lt;br/&gt;&#xD;&#xA;&#xD;&#xA;&lt;b&gt;[AVV-MD5]&lt;/b&gt;&lt;br/&gt;&#xD;&#xA;&lt;textarea cols=60 rows=8&gt;&#xD;&#xA;${av.md5section.text}&#xD;&#xA;&lt;/textarea&gt;&#xD;&#xA;&#xD;&#xA;  &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message</value></fval>
+	<fval name="outputContentType"><value>text/html</value></fval>
+	<fval name="successNode"><value contentType="reference">-1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitDelegateFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Manual Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="circuitPK"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='CircuitContainer'><id field='name' value='McAfee'/><key type='FilterCircuit'><id field='name' value='Update Libraries'/></key></key></key>	</value></fval>
+	<fval name="failureNode"><value contentType="reference">-1</value></fval>
+	<fval name="logFailure"><value>Failed in calling policy shortcut</value></fval>
+	<fval name="logFatal"><value>Error in calling policy shortcut circuit. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in calling policy shortcut</value></fval>
+	<fval name="name"><value>Call &apos;Update McAfee Libraries&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Manual Update'/>
+					<key type='ChangeMessageFilter'>
+						<id field='name' value='Set Message'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RemoveHTTPHeaderFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Manual Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="errorNoHeader"><value>0</value></fval>
+	<fval name="headerName"><value>If-Modified-Since</value></fval>
+	<fval name="logFailure"><value>Failed in removing the HTTP header from the message</value></fval>
+	<fval name="logFatal"><value>Error in removing the HTTP header from the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in removing the HTTP header from the message</value></fval>
+	<fval name="name"><value>Remove HTTP Header &apos;If-Modified-Since&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Manual Update'/>
+					<key type='RemoveHTTPHeaderFilter'>
+						<id field='name' value='Remove HTTP Header &apos;If-None-Match&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+		</key>
+	</key>
+	<fval name="category"><value contentType="reference">
+		<key type='PolicyCategoryGroup'>
+			<id field='name' value='Policy Categories'/>
+			<key type='PolicyCategory'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="fault"><value contentType="reference">-1</value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>Update Libraries</value></fval>
+	<fval name="start"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SetHTTPVerbFilter'>
+						<id field='name' value='Set HTTP Verb &apos;GET&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ConnectToURLFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>${content.body}</value></fval>
+	<fval name="caCerts"></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="ciphers"><value>DEFAULT</value></fval>
+	<fval name="connectionFailurePolicy"><value contentType="reference">-1</value></fval>
+	<fval name="forwardClientHostHeader"><value>0</value></fval>
+	<fval name="handleRedirects"><value>0</value></fval>
+	<fval name="logFailure"><value>McAfee : Update Libraries : Failed to route request to endpoint.</value></fval>
+	<fval name="logFatal"><value>Error occurred while routing request to endpoint. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>McAfee : Update Libraries : Begin Policy</value></fval>
+	<fval name="method"><value>${http.request.verb}</value></fval>
+	<fval name="name"><value>Connect to URL &apos;Get AV INI File&apos;</value></fval>
+	<fval name="performRetries"><value>0</value></fval>
+	<fval name="protoHeaders"><value>${http.headers}</value></fval>
+	<fval name="proxyServer"><value contentType="reference">
+<key type='ProxyServerGroup'><id field='name' value='Proxy Servers'/><key type='ProxyServer'><id field='name' value='Sample-Proxy'/></key></key>	</value></fval>
+	<fval name="retryCount"><value>5</value></fval>
+	<fval name="retryHTTPRanges"><value contentType="reference">-1</value></fval>
+	<fval name="retryLatency"><value>500</value></fval>
+	<fval name="runPolicyOnConnectionFailure"><value>0</value></fval>
+	<fval name="saveTransactionOnFailure"><value>0</value></fval>
+	<fval name="sendProxyMode"><value>1</value></fval>
+	<fval name="sendReceivedContentHeaders"><value>0</value></fval>
+	<fval name="slaBreachAsFailure"><value>0</value></fval>
+	<fval name="sslUsers"><value contentType="reference">-1</value></fval>
+	<fval name="stickyCookieDomain"><value></value></fval>
+	<fval name="stickyCookieExpiry"><value>600000</value></fval>
+	<fval name="stickyCookieName"><value>unnamed</value></fval>
+	<fval name="stickyCookiePath"><value></value></fval>
+	<fval name="stickyness"><value>0</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='HTTPBodyParserFilter'>
+						<id field='name' value='HTTP Parser'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="transparentProxy"><value>0</value></fval>
+	<fval name="url"><value>http://update.nai.com/Products/CommonUpdater/avvdat.ini</value></fval>
+	<fval name="useRootCerts"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SaveToFileFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+				<key type='ConnectToURLFilter'>
+					<id field='name' value='Connect to URL &apos;Get AV INI File&apos;'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="directory"><value>${environment.VINSTDIR}/message-archive</value></fval>
+	<fval name="fileName"><value>${id}.out</value></fval>
+	<fval name="includeHeaders"><value>0</value></fval>
+	<fval name="includeRequestLine"><value>0</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="maxFileSize"><value>1000</value></fval>
+	<fval name="maxNumberFiles"><value>500</value></fval>
+	<fval name="name"><value>Persistence Details</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeValue"><value>false</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
+	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>McAfee : Update Libraries : End Policy</value></fval>
+	<fval name="messageAttribute"><value>is.cached</value></fval>
+	<fval name="name"><value>Set Attribute Filter &apos;is.cached=false&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ConnectToURLFilter'>
+						<id field='name' value='Connect to URL &apos;Get AV Zipfile&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ExecFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="arguments">
+		<value>-o</value>
+		<value>/var/AV/${av.zipsection.filename}</value>
+		<value>-d</value>
+		<value>datv2.tmp</value>
+	</fval>
+	<fval name="block"><value>1</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="cmdLine"><value>/usr/bin/unzip</value></fval>
+	<fval name="exitValue"><value>0</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>New virus-definition: ${av.zipsection.filename} successfully unzipped</value></fval>
+	<fval name="name"><value>Execute process &apos;unzip to datv2.tmp&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ExecFilter'>
+						<id field='name' value='Execute process &apos;mv datv2.tmp datv2.new&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="timeout"><value>60000</value></fval>
+	<fval name="workingDirectory"><value>/var/AV/</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>Hallo&#xD;&#xA;McAfee Update pattern successful&#xD;&#xA;&#xD;&#xA;Update McAfee Libraries&#xD;&#xA;&#xD;&#xA;Is DAT file cached: ${is.cached}&#xD;&#xA;Cache Key: ${message.key}&#xD;&#xA;&#xD;&#xA;FileName: ${av.zipsection.filename}&#xD;&#xA;Expect MD5: ${av.zipsection.md5}&#xD;&#xA;Actual MD5: ${zipfile.md5}&#xD;&#xA;&#xD;&#xA;[AVV-ZIP]&#xD;&#xA;${av.zipsection.text}&#xD;&#xA;&#xD;&#xA;[AVV-MD5]&#xD;&#xA;${av.md5section.text}&#xD;&#xA;</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message McAfee Update successful</value></fval>
+	<fval name="outputContentType"><value>text/plain</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SmtpFilter'>
+						<id field='name' value='send mail McAfee Update successful'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="IsCachedAttributeFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeName"><value>message.key</value></fval>
+	<fval name="cacheToUse"><value contentType="reference">
+<key type='CacheManager'><id field='name' value='Cache Manager'/><key type='Cache'><id field='name' value='McAfeeCache'/></key></key>	</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="failureNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SetAttributeFilter'>
+						<id field='name' value='Set Attribute Filter &apos;is.cached=false&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="keyAttributeName"><value>message.key</value></fval>
+	<fval name="logFailure"><value>Failure while looking for key in the message attribute cache.</value></fval>
+	<fval name="logFatal"><value>Error while looking for key in the  message attribiute cache. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Found the key in the message attribute cache.</value></fval>
+	<fval name="name"><value>Is cached?</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SetAttributeFilter'>
+						<id field='name' value='Set Attribute Filter &apos;is.cached=true&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>Just a sample content for the virus-scanner.</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Input for the Init-Virus-Scan</value></fval>
+	<fval name="outputContentType"><value>text/html</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='McAfeeVirusCheck'>
+						<id field='name' value='McAfee Anti-Virus (init)'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JavaScriptFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="consumedProperties"></fval>
+	<fval name="engineName"><value>js</value></fval>
+	<fval name="generatedProperties">
+		<value>av.zipsection</value>
+		<value>av.md5section.text</value>
+		<value>av.zipsection.filename</value>
+		<value>av.zipsection.md5</value>
+		<value>av.zipsection.text</value>
+		<value>av.md5section.map</value>
+		<value>av.md5section.avvclean</value>
+		<value>av.md5section.avvnames</value>
+		<value>av.md5section.avvscan</value>
+		<value>message.key</value>
+		<value>av.zipsection.datversion</value>
+	</fval>
+	<fval name="logFailure"><value>Failed script filter</value></fval>
+	<fval name="logFatal"><value>Error while attempt to run script filter. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Passed script filter</value></fval>
+	<fval name="name"><value>Scripting language &apos;Parse INI File&apos;</value></fval>
+	<fval name="requiredProperties"><value>content.body</value></fval>
+	<fval name="script"><value>importPackage(Packages.java.io);&#xD;&#xA;importPackage(Packages.java.util);&#xD;&#xA;importPackage(Packages.com.vordel.trace);&#xD;&#xA;&#xD;&#xA;function invoke(msg) &#xD;&#xA;{&#xD;&#xA;    // get the content.body as a String&#xD;&#xA;    var body = msg.get(&quot;content.body&quot;);&#xD;&#xA;    var os = new ByteArrayOutputStream();&#xD;&#xA;    body.write(os, 4);&#xD;&#xA;    var iniFile = os.toString().replaceAll(&quot;\r&quot;, &quot;&quot;);&#xD;&#xA;&#xD;&#xA;    // get the [AVV-ZIP] section&#xD;&#xA;    var avBegin = iniFile.substring(iniFile.indexOf(&quot;[AVV-ZIP]&quot;) + 9);&#xD;&#xA;    var avZipSection  = avBegin.substring(0, avBegin.indexOf(&quot;[&quot;));&#xD;&#xA;&#xD;&#xA;    // loop through the lines and parse each line&#xD;&#xA;    var avZipMap = new HashMap();&#xD;&#xA;    var lines = avZipSection.split(&quot;\n&quot;);&#xD;&#xA;    for (var i=0; i&lt;lines.length; i++) {&#xD;&#xA;        var line = lines[i];&#xD;&#xA;        var fields = line.split(&quot;=&quot;);&#xD;&#xA;        if (fields.length &gt;0) {&#xD;&#xA;            avZipMap.put(fields[0], fields[1]);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;    Trace.debug(&quot;FileName: &quot; + avZipMap.get(&quot;FileName&quot;));&#xD;&#xA;    Trace.debug(&quot;MD5: &quot; + avZipMap.get(&quot;MD5&quot;));&#xD;&#xA;&#xD;&#xA;    // get the [AVV-MD5] section&#xD;&#xA;    var avBegin = iniFile.substring(iniFile.indexOf(&quot;[AVV-MD5]&quot;) + 9);&#xD;&#xA;    var avMd5Section  = avBegin.substring(0, avBegin.indexOf(&quot;[&quot;));&#xD;&#xA;&#xD;&#xA;    // loop through the lines and parse each&#xD;&#xA;    var avMd5Map = new HashMap();&#xD;&#xA;    var lines = avMd5Section.split(&quot;\n&quot;);&#xD;&#xA;    for (var i=0; i&lt;lines.length; i++) {&#xD;&#xA;        var line = lines[i];&#xD;&#xA;        var fields = line.split(&quot; &quot;);&#xD;&#xA;        if (fields.length &gt;1) {&#xD;&#xA;            avMd5Map.put(fields[1], fields[0]);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;    Trace.debug(&quot;avvclean.dat: &quot; + avMd5Map.get(&quot;avvclean.dat&quot;));&#xD;&#xA;&#xD;&#xA;    msg.put(&quot;av.zipsection.map&quot;, avZipMap);&#xD;&#xA;    msg.put(&quot;av.zipsection.text&quot;, avZipSection);&#xD;&#xA;    msg.put(&quot;av.zipsection.datversion&quot;, avZipMap.get(&quot;DATVersion&quot;));&#xD;&#xA;    msg.put(&quot;av.zipsection.filename&quot;, avZipMap.get(&quot;FileName&quot;));&#xD;&#xA;    msg.put(&quot;av.zipsection.md5&quot;, avZipMap.get(&quot;MD5&quot;));&#xD;&#xA;&#xD;&#xA;    msg.put(&quot;av.md5section.map&quot;, avMd5Map);&#xD;&#xA;    msg.put(&quot;av.md5section.text&quot;, avMd5Section);&#xD;&#xA;    msg.put(&quot;av.md5section.avvclean&quot;, avMd5Map.get(&quot;avvclean.dat&quot;));&#xD;&#xA;    msg.put(&quot;av.md5section.avvnames&quot;, avMd5Map.get(&quot;avvnames.dat&quot;)); &#xD;&#xA;    msg.put(&quot;av.md5section.avvscan&quot;, avMd5Map.get(&quot;avvscan.dat&quot;));&#xD;&#xA;&#xD;&#xA;    Trace.debug(&quot;message.key: &quot; + avZipMap.get(&quot;DATVersion&quot;) + &quot;|&quot; + avZipMap.get(&quot;MD5&quot;));&#xD;&#xA;    msg.put(&quot;message.key&quot;, avZipMap.get(&quot;DATVersion&quot;) + &quot;|&quot; + avZipMap.get(&quot;MD5&quot;));&#xD;&#xA;&#xD;&#xA;    return true;&#xD;&#xA;}</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='IsCachedAttributeFilter'>
+						<id field='name' value='Is cached?'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>Hallo&#xD;&#xA;McAfee pattern are cached</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message McAfee pattern are cached</value></fval>
+	<fval name="outputContentType"><value>text/plain</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SmtpFilter'>
+						<id field='name' value='send mail McAfee pattern are cached'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ConnectToURLFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>${content.body}</value></fval>
+	<fval name="caCerts"></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="ciphers"><value>DEFAULT</value></fval>
+	<fval name="connectionFailurePolicy"><value contentType="reference">-1</value></fval>
+	<fval name="forwardClientHostHeader"><value>0</value></fval>
+	<fval name="handleRedirects"><value>1</value></fval>
+	<fval name="logFailure"><value>Failed to route request to endpoint.</value></fval>
+	<fval name="logFatal"><value>Error occurred while routing request to endpoint. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Successfully routed request to endpoint</value></fval>
+	<fval name="method"><value>${http.request.verb}</value></fval>
+	<fval name="name"><value>Connect to URL &apos;Get AV Zipfile&apos;</value></fval>
+	<fval name="performRetries"><value>0</value></fval>
+	<fval name="protoHeaders"><value>${http.headers}</value></fval>
+	<fval name="proxyServer"><value contentType="reference">
+<key type='ProxyServerGroup'><id field='name' value='Proxy Servers'/><key type='ProxyServer'><id field='name' value='Sample-Proxy'/></key></key>	</value></fval>
+	<fval name="retryCount"><value>5</value></fval>
+	<fval name="retryHTTPRanges"><value contentType="reference">-1</value></fval>
+	<fval name="retryLatency"><value>500</value></fval>
+	<fval name="runPolicyOnConnectionFailure"><value>0</value></fval>
+	<fval name="saveTransactionOnFailure"><value>0</value></fval>
+	<fval name="sendProxyMode"><value>1</value></fval>
+	<fval name="sendReceivedContentHeaders"><value>0</value></fval>
+	<fval name="slaBreachAsFailure"><value>0</value></fval>
+	<fval name="sslUsers"><value contentType="reference">-1</value></fval>
+	<fval name="stickyCookieDomain"><value></value></fval>
+	<fval name="stickyCookieExpiry"><value>600000</value></fval>
+	<fval name="stickyCookieName"><value>unnamed</value></fval>
+	<fval name="stickyCookiePath"><value></value></fval>
+	<fval name="stickyness"><value>0</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SaveToFileFilter'>
+						<id field='name' value='Save to file'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="transparentProxy"><value>0</value></fval>
+	<fval name="url"><value>http://update.nai.com/Products/CommonUpdater/${av.zipsection.filename}</value></fval>
+	<fval name="useRootCerts"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SaveToFileFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+				<key type='ConnectToURLFilter'>
+					<id field='name' value='Connect to URL &apos;Get AV Zipfile&apos;'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="directory"><value>${environment.VINSTDIR}/message-archive</value></fval>
+	<fval name="fileName"><value>${id}.out</value></fval>
+	<fval name="includeHeaders"><value>0</value></fval>
+	<fval name="includeRequestLine"><value>0</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="maxFileSize"><value>1000</value></fval>
+	<fval name="maxNumberFiles"><value>500</value></fval>
+	<fval name="name"><value>Persistence Details</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ExecFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="arguments"><value> ${av.zipsection.filename}</value></fval>
+	<fval name="block"><value>1</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="cmdLine"><value>md5sum</value></fval>
+	<fval name="exitValue"><value>0</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="name"><value>Execute process &apos;md5sum of zip file&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='JavaScriptFilter'>
+						<id field='name' value='Scripting language &apos;Is Valid MD5?&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="timeout"><value>60000</value></fval>
+	<fval name="workingDirectory"><value>/var/AV/</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SmtpFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attachmentName"><value>${id}.bin</value></fval>
+	<fval name="bodyLocation"><value>BODY_IN_TEXT</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="failureNode"><value contentType="reference">-1</value></fval>
+	<fval name="from"><value>xmliat1-int1@deutschebahn.com</value></fval>
+	<fval name="logFailure"><value>Failure while sending message via SMTP.</value></fval>
+	<fval name="logFatal"><value>Error while sending message via SMTP. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Sent message via SMTP.</value></fval>
+	<fval name="name"><value>send mail McAfee Update successful</value></fval>
+	<fval name="smtpServer"><value contentType="reference">
+<key type='SMTPServerGroup'><id field='name' value='SMTP Servers'/><key type='SMTPServer'><id field='name' value='Sample-SMTP'/></key></key>	</value></fval>
+	<fval name="subject"><value>Update McAfee pattern</value></fval>
+	<fval name="successNode"><value contentType="reference">-1</value></fval>
+	<fval name="to"><value>mw-ft@deutschebahn.com</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeValue"><value>CACHED</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
+	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>McAfee : Update Libraries : End Policy</value></fval>
+	<fval name="messageAttribute"><value>zipfile.md5</value></fval>
+	<fval name="name"><value>Set Attribute Filter &apos;zipfile.md5=CACHED&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ChangeMessageFilter'>
+						<id field='name' value='Set Message McAfee pattern are cached'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SaveToFileFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="directory"><value>/var/AV</value></fval>
+	<fval name="fileName"><value>${av.zipsection.filename}</value></fval>
+	<fval name="includeHeaders"><value>0</value></fval>
+	<fval name="includeRequestLine"><value>0</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>New pattern-file: ${av.zipsection.filename} successfully downloaded.</value></fval>
+	<fval name="maxFileSize"><value>100000</value></fval>
+	<fval name="maxNumberFiles"><value>10</value></fval>
+	<fval name="name"><value>Save to file</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ExecFilter'>
+						<id field='name' value='Execute process &apos;md5sum of zip file&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetHTTPVerbFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="httpVerb"><value>GET</value></fval>
+	<fval name="logFailure"><value>Failed in setting the HTTP verb for the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the HTTP verb for the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the HTTP verb for the message</value></fval>
+	<fval name="name"><value>Set HTTP Verb &apos;GET&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ConnectToURLFilter'>
+						<id field='name' value='Connect to URL &apos;Get AV INI File&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="McAfeeVirusCheck">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='content-filtering'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="cleanType"><value>0</value></fval>
+	<fval name="decompArchives"><value>1</value></fval>
+	<fval name="decompExes"><value>1</value></fval>
+	<fval name="failAnyMacros"><value>0</value></fval>
+	<fval name="heuristicProgramAnalysis"><value>1</value></fval>
+	<fval name="heusristicMacroAnalysis"><value>0</value></fval>
+	<fval name="logFailure"><value>McAfee antivirus: Virus found in message</value></fval>
+	<fval name="logFatal"><value>Error occurred during McAfee antivirus filtering. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>McAfee antivirus: No virus found in message</value></fval>
+	<fval name="name"><value>McAfee Anti-Virus (init)</value></fval>
+	<fval name="scanEmbedded"><value>1</value></fval>
+	<fval name="scanTests"><value>1</value></fval>
+	<fval name="scanType"><value>1</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ChangeMessageFilter'>
+						<id field='name' value='Set Message McAfee Update successful'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeValue"><value>true</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
+	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Set the attribute value</value></fval>
+	<fval name="messageAttribute"><value>is.cached</value></fval>
+	<fval name="name"><value>Set Attribute Filter &apos;is.cached=true&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='SetAttributeFilter'>
+						<id field='name' value='Set Attribute Filter &apos;zipfile.md5=CACHED&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="HTTPBodyParserFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Failed to parse the HTTP message</value></fval>
+	<fval name="logFatal"><value>Error occurred while parsing the HTTP message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Successfully parsed the HTTP message</value></fval>
+	<fval name="name"><value>HTTP Parser</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='JavaScriptFilter'>
+						<id field='name' value='Scripting language &apos;Parse INI File&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CacheAttributeFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeName"><value>message.key</value></fval>
+	<fval name="cacheToUse"><value contentType="reference">
+<key type='CacheManager'><id field='name' value='Cache Manager'/><key type='Cache'><id field='name' value='McAfeeCache'/></key></key>	</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="keyAttributeName"><value>message.key</value></fval>
+	<fval name="logFailure"><value>Failed to cache the message attribute.</value></fval>
+	<fval name="logFatal"><value>Error while caching the message attribute. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>McAfee : Update Libraries : End Policy</value></fval>
+	<fval name="name"><value>Cache attribute message.key</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ChangeMessageFilter'>
+						<id field='name' value='Set Input for the Init-Virus-Scan'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SmtpFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attachmentName"><value>${id}.bin</value></fval>
+	<fval name="bodyLocation"><value>BODY_IN_TEXT</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="failureNode"><value contentType="reference">-1</value></fval>
+	<fval name="from"><value>xmliat1-int1@deutschebahn.com</value></fval>
+	<fval name="logFailure"><value>Failure while sending message via SMTP.</value></fval>
+	<fval name="logFatal"><value>Error while sending message via SMTP. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Sent message via SMTP.</value></fval>
+	<fval name="name"><value>send mail McAfee pattern are cached</value></fval>
+	<fval name="smtpServer"><value contentType="reference">
+<key type='SMTPServerGroup'><id field='name' value='SMTP Servers'/><key type='SMTPServer'><id field='name' value='Sample-SMTP'/></key></key>	</value></fval>
+	<fval name="subject"><value>Update McAfee pattern</value></fval>
+	<fval name="successNode"><value contentType="reference">-1</value></fval>
+	<fval name="to"><value>mw-ft@deutschebahn.com</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ExecFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="arguments">
+		<value>-f</value>
+		<value>datv2.tmp</value>
+		<value>/opt/apiserver/conf/plugin/mcafee/datv2.new</value>
+	</fval>
+	<fval name="block"><value>1</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="cmdLine"><value>mv</value></fval>
+	<fval name="exitValue"><value>0</value></fval>
+	<fval name="logFailure"><value>Failure while moving pattern files to /opt/apiserver/conf/plugin/mcafee/datv2.new</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>New pattern files sucesfully moved to /opt/apiserver/conf/plugin/mcafee/datv2.new</value></fval>
+	<fval name="name"><value>Execute process &apos;mv datv2.tmp datv2.new&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='CacheAttributeFilter'>
+						<id field='name' value='Cache attribute message.key'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="timeout"><value>60000</value></fval>
+	<fval name="workingDirectory"><value>/var/AV/</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JavaScriptFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Update Libraries'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="consumedProperties"></fval>
+	<fval name="engineName"><value>js</value></fval>
+	<fval name="failureNode"><value contentType="reference">-1</value></fval>
+	<fval name="generatedProperties">
+		<value>zipfile.md5</value>
+		<value>exception</value>
+	</fval>
+	<fval name="logFailure"><value>Failed script filter</value></fval>
+	<fval name="logFatal"><value>Error while attempt to run script filter. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Passed script filter</value></fval>
+	<fval name="name"><value>Scripting language &apos;Is Valid MD5?&apos;</value></fval>
+	<fval name="requiredProperties">
+		<value>av.zipsection.md5</value>
+		<value>exec.output</value>
+	</fval>
+	<fval name="script"><value>importPackage(Packages.com.vordel.trace);&#xD;&#xA;&#xD;&#xA;function invoke(msg) &#xD;&#xA;{&#xD;&#xA;    var md5ExecValue = msg.get(&apos;exec.output&apos;);&#xD;&#xA;    var md5Value = msg.get(&apos;av.zipsection.md5&apos;);&#xD;&#xA;&#xD;&#xA;    md5ExecValue = md5ExecValue.substring(0,md5ExecValue.indexOf(&quot; &quot;));&#xD;&#xA;&#xD;&#xA;    Trace.debug(&quot;Zip MD5: &quot; + md5ExecValue);&#xD;&#xA;    Trace.debug(&quot;Expected MD5: &quot; + md5Value);&#xD;&#xA;&#xD;&#xA;    msg.put(&quot;zipfile.md5&quot;, md5ExecValue);&#xD;&#xA;&#xD;&#xA;    if (md5ExecValue.equals(md5Value)) {&#xD;&#xA;        return true;&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;        msg.put(&quot;exception&quot;, &quot;The DAT file MD5 value does not match the INI file.&quot;);&#xD;&#xA;        return false;&#xD;&#xA;    }&#xD;&#xA;}</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Update Libraries'/>
+					<key type='ExecFilter'>
+						<id field='name' value='Execute process &apos;unzip to datv2.tmp&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+		</key>
+	</key>
+	<fval name="category"><value contentType="reference">
+		<key type='PolicyCategoryGroup'>
+			<id field='name' value='Policy Categories'/>
+			<key type='PolicyCategory'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="fault"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Scheduler Update'/>
+					<key type='CircuitDelegateFilter'>
+						<id field='name' value='Call &apos;Fault Handler&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>Scheduler Update</value></fval>
+	<fval name="start"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Scheduler Update'/>
+					<key type='CircuitDelegateFilter'>
+						<id field='name' value='Call &apos;Update Libraries&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="TrueFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value></value></fval>
+	<fval name="logFatal"><value>True filter error. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>MD5 of pattern already cached - No update</value></fval>
+	<fval name="name"><value>MD5 of pattern already cached - No update</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitDelegateFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="circuitPK"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='CircuitContainer'><id field='name' value='McAfee'/><key type='CircuitContainer'><id field='name' value='Library'/><key type='FilterCircuit'><id field='name' value='Fault Handler'/></key></key></key></key>	</value></fval>
+	<fval name="logFailure"><value>Failed in calling policy shortcut</value></fval>
+	<fval name="logFatal"><value>Error in calling policy shortcut circuit. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in calling policy shortcut</value></fval>
+	<fval name="name"><value>Call &apos;Fault Handler&apos;</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitDelegateFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="circuitPK"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='CircuitContainer'><id field='name' value='McAfee'/><key type='FilterCircuit'><id field='name' value='Update Libraries'/></key></key></key>	</value></fval>
+	<fval name="logFailure"><value>Failed in calling policy shortcut</value></fval>
+	<fval name="logFatal"><value>Error in calling policy shortcut circuit. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>6</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>Success in calling policy shortcut</value></fval>
+	<fval name="name"><value>Call &apos;Update Libraries&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Scheduler Update'/>
+					<key type='MessageAttrContentFilter'>
+						<id field='name' value='Validate Message Attribute &apos;Is NOT Cached?&apos;'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="MessageAttrContentFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='content-filtering'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="failureNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Scheduler Update'/>
+					<key type='TrueFilter'>
+						<id field='name' value='MD5 of pattern already cached - No update'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Message attribute content check failed</value></fval>
+	<fval name="logFatal"><value>Error occurred while content checking message attributes. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>1</value></fval>
+	<fval name="logMaskType"><value>FILTER</value></fval>
+	<fval name="logSuccess"><value>Message attribute content check passed</value></fval>
+	<fval name="name"><value>Validate Message Attribute &apos;Is NOT Cached?&apos;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Scheduler Update'/>
+					<key type='AlertFilter'>
+						<id field='name' value='Alert'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="AttributeRegularExpression">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+				<key type='MessageAttrContentFilter'>
+					<id field='name' value='Validate Message Attribute &apos;Is NOT Cached?&apos;'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="attributeName"><value>${is.cached}</value></fval>
+	<fval name="base64Decode"><value>0</value></fval>
+	<fval name="onceOffRegularExpression"><value>false</value></fval>
+	<fval name="required"><value>1</value></fval>
+	<fval name="substringEnd"><value></value></fval>
+	<fval name="substringStart"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="AlertFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="alertMessage"><value>McAfee libraries successfully updated on !system.name!.&#xD;&#xA;&#xD;&#xA;DAT Version: ${av.zipsection.datversion}&#xD;&#xA;File Name: ${av.zipsection.filename}&#xD;&#xA;Expect MD5: ${av.zipsection.md5}&#xD;&#xA;Actual MD5: ${zipfile.md5}</value></fval>
+	<fval name="alertPolicy"><value contentType="reference">-1</value></fval>
+	<fval name="alertType"><value>3</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Alert generation failed</value></fval>
+	<fval name="logFatal"><value>Alert generation aborted: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Alert generation success</value></fval>
+	<fval name="name"><value>Alert</value></fval>
+	<fval name="numberMessages"><value>1</value></fval>
+	<fval name="timePeriodMillis"><value>60000</value></fval>
+	<fval name="trackPerClient"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="EmailAlertNotification">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='FilterCircuit'>
+				<id field='name' value='Scheduler Update'/>
+				<key type='AlertFilter'>
+					<id field='name' value='Alert'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="alertSystem"><value contentType="reference">
+<key type='AlertManager'><id field='name' value='Default Alert Configuration'/><key type='EmailAlertSystem'><id field='name' value='Sample'/></key></key>	</value></fval>
+	<fval name="customMessage"><value></value></fval>
+	<fval name="messageTemplateFile"><value></value></fval>
+	<fval name="mimeType"><value contentType="reference">-1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CircuitContainer">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+		</key>
+	</key>
+	<fval name="name"><value>Library</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='Library'/>
+			</key>
+		</key>
+	</key>
+	<fval name="category"><value contentType="reference">
+		<key type='PolicyCategoryGroup'>
+			<id field='name' value='Policy Categories'/>
+			<key type='PolicyCategory'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>Fault Handler</value></fval>
+	<fval name="start"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='CircuitContainer'>
+					<id field='name' value='Library'/>
+					<key type='FilterCircuit'>
+						<id field='name' value='Fault Handler'/>
+						<key type='JavaScriptFilter'>
+							<id field='name' value='Scripting language &apos;Get the circuit.exception&apos;'/>
+						</key>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JavaScriptFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='Library'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Fault Handler'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="consumedProperties"></fval>
+	<fval name="engineName"><value>js</value></fval>
+	<fval name="generatedProperties"><value>exception</value></fval>
+	<fval name="logFailure"><value>Failed script filter</value></fval>
+	<fval name="logFatal"><value>Error while attempt to run script filter. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Passed script filter</value></fval>
+	<fval name="name"><value>Scripting language &apos;Get the circuit.exception&apos;</value></fval>
+	<fval name="requiredProperties">
+		<value>circuit.exception</value>
+		<value>exception</value>
+	</fval>
+	<fval name="script"><value>importPackage(Packages.com.vordel.trace);&#xD;&#xA;&#xD;&#xA;function invoke(msg)         &#xD;&#xA;{&#xD;&#xA;    var exception = msg.get(&quot;exception&quot;);&#xD;&#xA;&#xD;&#xA;    if (exception == null) {&#xD;&#xA;        circuitException = msg.get(&quot;circuit.exception&quot;);&#xD;&#xA;        var text = circuitException.getMessage();&#xD;&#xA;        msg.put(&quot;exception&quot;, text);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    return true;         &#xD;&#xA;}&#xD;&#xA;</value></fval>
+	<fval name="successNode"><value contentType="reference">
+		<key type='CircuitContainer'>
+			<id field='name' value='AdminPolicies'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='McAfee'/>
+				<key type='CircuitContainer'>
+					<id field='name' value='Library'/>
+					<key type='FilterCircuit'>
+						<id field='name' value='Fault Handler'/>
+						<key type='AlertFilter'>
+							<id field='name' value='Alert'/>
+						</key>
+					</key>
+				</key>
+			</key>
+		</key>
+	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="AlertFilter">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='Library'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Fault Handler'/>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="alertMessage"><value>ERROR - Unable to update the McAfee libraries on !system.name!.&#xD;&#xA;&#xD;&#xA;Exception: ${exception}&#xD;&#xA;&#xD;&#xA;DAT Version: ${av.zipsection.datversion}&#xD;&#xA;File Name: ${av.zipsection.filename}&#xD;&#xA;Expect MD5: ${av.zipsection.md5}&#xD;&#xA;Actual MD5: ${zipfile.md5}</value></fval>
+	<fval name="alertPolicy"><value contentType="reference">-1</value></fval>
+	<fval name="alertType"><value>1</value></fval>
+	<fval name="category"><value contentType="reference">
+		<key type='CategoryGroup'>
+			<id field='name' value='Filter Categories'/>
+			<key type='Category'>
+				<id field='name' value='miscellaneous'/>
+			</key>
+		</key>
+	</value></fval>
+	<fval name="logFailure"><value>Alert generation failed</value></fval>
+	<fval name="logFatal"><value>Alert generation aborted: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Alert generation success</value></fval>
+	<fval name="name"><value>Alert</value></fval>
+	<fval name="numberMessages"><value>1</value></fval>
+	<fval name="timePeriodMillis"><value>60000</value></fval>
+	<fval name="trackPerClient"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="EmailAlertNotification">
+	<key type='CircuitContainer'>
+		<id field='name' value='AdminPolicies'/>
+		<key type='CircuitContainer'>
+			<id field='name' value='McAfee'/>
+			<key type='CircuitContainer'>
+				<id field='name' value='Library'/>
+				<key type='FilterCircuit'>
+					<id field='name' value='Fault Handler'/>
+					<key type='AlertFilter'>
+						<id field='name' value='Alert'/>
+					</key>
+				</key>
+			</key>
+		</key>
+	</key>
+	<fval name="alertSystem"><value contentType="reference">
+<key type='AlertManager'><id field='name' value='Default Alert Configuration'/><key type='EmailAlertSystem'><id field='name' value='Sample'/></key></key>	</value></fval>
+	<fval name="customMessage"><value></value></fval>
+	<fval name="messageTemplateFile"><value></value></fval>
+	<fval name="mimeType"><value contentType="reference">-1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XMLFirewall">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+		</key>
+	</key>
+	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
+	<fval name="corsUsage"><value>HTTP</value></fval>
+	<fval name="enableAccessLogging"><value>0</value></fval>
+	<fval name="enabled"><value>1</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="filterCircuit"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='AdminPolicies'/><key type='CircuitContainer'><id field='name' value='McAfee'/><key type='FilterCircuit'><id field='name' value='Manual Update'/></key></key></key>	</value></fval>
+	<fval name="httpMethod"><value>*</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="pathMatching"><value>LONGEST</value></fval>
+	<fval name="payloadMask"><value>0</value></fval>
+	<fval name="uriprefix"><value>/UpdatePattern</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/UpdatePattern'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value>system.policy.request</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="name"><value>GLOBAL_POLICY_REQ</value></fval>
+	<fval name="priority"><value>0</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/UpdatePattern'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
+	<fval name="evaluate"><value>true</value></fval>
+	<fval name="name"><value>CUSTOM_POLICY_RSP</value></fval>
+	<fval name="priority"><value>3</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/UpdatePattern'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value>system.policy.response</value></fval>
+	<fval name="evaluate"><value>1</value></fval>
+	<fval name="name"><value>GLOBAL_POLICY_RSP</value></fval>
+	<fval name="priority"><value>4</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference">
+	<key type='NetService'>
+		<id field='name' value='Service'/>
+		<key type='HTTP'>
+			<id field='name' value='Default Services'/>
+			<key type='XMLFirewall'>
+				<id field='uriprefix' value='/UpdatePattern'/>
+				<id field='httpMethod' value='*'/>
+			</key>
+		</key>
+	</key>
+	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
+	<fval name="evaluate"><value>true</value></fval>
+	<fval name="name"><value>CUSTOM_POLICY_REQ</value></fval>
+	<fval name="priority"><value>1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ESConfiguration">
+	<fval name="name"><value>Entity Store Configuration</value></fval>
+	<fval name="passphraseTest"><value>aHR0cDsvL3d3dy52b3JkZWwuY29t</value></fval>
+	<fval name="productKey"><value>VordelGateway</value></fval>
+	<fval name="version"><value>7.5.2</value></fval>
+</entity>
+</entityStoreData>
