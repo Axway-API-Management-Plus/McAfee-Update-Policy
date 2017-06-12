@@ -14,6 +14,7 @@ Using the McAfee virus scanner on the Axway API-Gateway requires a license!
 ## API Management Version Compatibilty
 This artefact was successfully tested for the following versions:
 - V7.5.3 (Linux only)
+- V7.5.2 (Linux only)
 
 
 ## Install
