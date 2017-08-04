@@ -67,7 +67,7 @@ This policy works only, if the API-Gateway has direct internet access (you may a
 
 ## Contributing
 
-Please read [Contributing.md] (/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [Contributing.md](https://github.com/Axway-API-Management-Plus/Common/blob/master/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Team
 
@@ -77,5 +77,5 @@ Please read [Contributing.md] (/Contributing.md) for details on our code of cond
 
 
 ## License
-Apache License 2.0 (refer to document [license] (https://github.com/Axway-API-Management/Executing-loopback-requests-on-a-listener/blob/master/LICENSE))
+[Apache License 2.0](/LICENSE)
 
